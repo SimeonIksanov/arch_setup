@@ -1,0 +1,10 @@
+#this installation was initialized with command:
+pacstrap -K /mnt base linux linux-firmware intel-ucode networkmanager sudo
+
+#After first boot, NetworkManager service was enabled with command:
+systemctl enable NetworkManager
+
+#Then NetworkManager service was started with command:
+systemctl start NetworkManager
+
+#and configured manually with nmtui: connected to wifi network

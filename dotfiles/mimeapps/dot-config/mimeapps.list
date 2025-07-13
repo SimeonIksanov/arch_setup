@@ -1,0 +1,8 @@
+[Default Applications]
+; xdg-mime query filetype photo.jpg shows filetype
+; ls /usr/share/applications show installed apps
+application/x-terminal-emulator=com.mitchellh.ghostty.desktop
+x-scheme-handler/terminal=com.mitchellh.ghostty.desktop
+; image/jpeg=org.xfce.ristretto.desktop
+image/jpeg=imv.desktop
+application/pdf=org.pwmt.zathura.desktop

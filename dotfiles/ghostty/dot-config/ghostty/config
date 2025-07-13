@@ -1,0 +1,11 @@
+shell-integration = detect
+shell-integration-features = cursor,ssh-terminfo,ssh-env,title,sudo
+# background-opacity = 0.95
+background-opacity = 0.8
+font-family = "JetBrainsMono Nerd Font"
+cursor-style=bar
+mouse-hide-while-typing = true
+background-blur = true
+theme = catppuccin-mocha.conf
+
+keybind = ctrl+s>r=reload_config

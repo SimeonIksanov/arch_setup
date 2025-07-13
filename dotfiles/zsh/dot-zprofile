@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+# echo '.zprofile loaded'
+
+# # Добавляем директории в PATH
+typeset -U path
+# path=(~/.local/bin ~/bin $path)
+# path=(~/.dotnet/tools $path)
+path=($DOTNET_TOOLS $LOCAL_BIN $path)
+export PATH
+
+

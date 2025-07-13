@@ -1,0 +1,8 @@
+include catppuccin-mocha
+# include catppuccin-latte
+# map i recolor
+set recolor-reverse-video true
+set statusbar-home-tilde true
+set adjust-open best-fit
+set database sqlite
+set smooth-scroll true

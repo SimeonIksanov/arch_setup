@@ -1,0 +1,20 @@
+[include]
+  path = ~/.config/git/git_ignored_config
+[user]
+  # These values are set in ~/.config/git_ignored_config
+[core]
+  compression = 9
+  whitespace = error
+  preloadindex = true
+[status]
+  showUntrackedFiles = true
+  branch = true
+  showStash = true
+[push]
+  autoSetupRemote = true
+  default = current
+[pull]
+  default = current
+  ; rebase = true
+[rebase]
+  ; autoStash = true

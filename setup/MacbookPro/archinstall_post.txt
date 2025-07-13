@@ -1,0 +1,4 @@
+# https://sylvaindurand.org/installing-arch-linux-on-macbook-pro-late-213/
+
+pacman -Syu networkmanager
+pacman -Syu linux-headers broadcom-wl-dkms
