@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 source shared.sh
 
@@ -8,9 +9,12 @@ PACKAGES=(
   zsh-completions
   # zsh-autosuggestions
 )
-for pkg in "${PACKAGES[@]}"; do
-	sudo pacman -S --noconfirm --needed "$pkg"
-done
+STOW_ITEMS=(
+  zsh
+)
+
+pacman_install "${PACKAGES[@]}"
+stow_install "${STOW_ITEMS[@]}"
 
 CURRENT_SHELL=$(basename "$SHELL")
 ZSH_PATH=$(which zsh)
@@ -28,12 +32,3 @@ if [ "$CURRENT_SHELL" != "zsh" ]; then
 else
   echo "zsh уже установлен как основной shell."
 fi
-
-
-ITEMS=(
-  zsh
-)
-
-for item in "${ITEMS[@]}"; do
-  stow --dotfiles -v -d ${HOME}/arch_setup/dotfiles -t ${HOME} "$item"
-done

@@ -2,8 +2,8 @@
 set -euo pipefail
 source ./shared.sh
 
-YAY_APPS=(
-  brave-bin
+STOW_ITEMS=(
+  scripts
 )
 
-yay_install "${YAY_APPS[@]}"
+stow_install "${STOW_ITEMS[@]}"

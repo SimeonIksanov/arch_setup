@@ -4,11 +4,11 @@
   "position": "top", // Waybar position (top|bottom|left|right)
   "spacing": 0, // Gaps between modules (4px)
   "height": 29,
-  "modules-left": [ "image#hyprland", "hyprland/workspaces" ],
+  "modules-left": [ "image#hyprland", "hyprland/workspaces", "hyprland/window" ],
   "modules-center": ["clock"],
   "modules-right": [
     "group/tray-expander",
-  //   // "bluetooth",
+  // "bluetooth",
     "hyprland/language",
     "idle_inhibitor",
     "network",
@@ -39,6 +39,15 @@
       "active": "󱓻"
     },
     "persistent-workspaces": { "1": [], "2": [], "3": [], "4": [], "5": [] }
+  },
+  "hyprland/window": {
+    "format": "{}",
+      "rewrite": {
+        "(.*) - Vivaldi": "Vivaldi",
+        "(.*) - fish": "> [$1]"
+    },
+    "separate-outputs": true,
+    "icon": false,
   },
   "hyprland/language": {
     "format-en": "En",

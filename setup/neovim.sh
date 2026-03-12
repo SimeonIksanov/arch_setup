@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-
-source shared.sh
+set -euo pipefail
+source ./shared.sh
 
 PACKAGES=(
   neovim
@@ -14,10 +14,5 @@ STOW_ITEMS=(
   neovim
 )
 
-for pkg in "${PACKAGES[@]}"; do
-  sudo pacman -S --noconfirm --needed --color auto "$pkg"
-done
-
-for item in "${STOW_ITEMS[@]}"; do
-  stow --dotfiles -v -d ${HOME}/arch_setup/dotfiles -t ${HOME} "$item"
-done
+pacman_install "${PACKAGES[@]}"
+stow_install "${STOW_ITEMS[@]}"

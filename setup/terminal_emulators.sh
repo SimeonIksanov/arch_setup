@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
-
-source shared.sh
+source ./shared.sh
 
 PACKAGES=(
-  swayosd
+  ghostty
+  kitty
 )
 
 pacman_install "${PACKAGES[@]}"

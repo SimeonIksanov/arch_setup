@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-
-# exit immediately on any error
-set -e
+set -euo pipefail
+source ./shared.sh
 
 FILEPATH="/etc/pam.d/sddm"
 
@@ -17,8 +16,8 @@ GREPPATTERN='fingerprint auth block'
 grep -q $GREPPATTERN $FILEPATH 2>/dev/null
 
 if [ $? -eq 0 ]; then
-	echo 'sddm file already has wanted lines'
-	exit 0
+  echo 'sddm file already has wanted lines'
+  exit 0
 fi
 
 sudo sed -i "2i $TEXT" $FILEPATH

@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-sudo pacman -S --noconfirm --needed git base-devel
+set -euo pipefail
+source ./shared.sh
+PACKAGES=(git base-devel)
+pacman_install "${PACKAGES[@]}"
 
 rm -rf yay-bin
 git clone https://aur.archlinux.org/yay-bin.git

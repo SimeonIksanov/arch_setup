@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
+set -euo pipefail
+source ./shared.sh
 
 PACKAGES=(
   sddm
 )
 
-for pkg in "${PACKAGES[@]}"; do
-  sudo pacman -S --noconfirm --needed --color auto "$pkg"
-done
+pacman_install "${PACKAGES[@]}"
 
 sudo systemctl enable sddm.service

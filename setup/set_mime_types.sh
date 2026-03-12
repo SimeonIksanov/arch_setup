@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
+set -euo pipefail
+source ./shared.sh
 
 ITEMS=(
   mimeapps
 )
 
-for item in "${ITEMS[@]}"; do
-  stow --dotfiles -v -d ${HOME}/arch_setup/dotfiles -t ${HOME} "$item"
-done
+stow_install "${STOW_ITEMS[@]}"

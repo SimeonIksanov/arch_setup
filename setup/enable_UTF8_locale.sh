@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-
-# exit immediately on any error
-set -e
+set -euo pipefail
+source ./shared.sh
 
 # File path
 LOCALE_GEN="/etc/locale.gen"

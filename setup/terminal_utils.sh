@@ -4,7 +4,9 @@ set -euo pipefail
 source shared.sh
 
 PACKAGES=(
-  swayosd
+  btop
+  tmux
+  yazi
 )
 
 pacman_install "${PACKAGES[@]}"

@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
+source ./shared.sh
+
 PACKAGES=(
   bind
   curl
@@ -15,8 +19,6 @@ PACKAGES=(
   zip
 )
 
-for pkg in "${PACKAGES[@]}"; do
-  sudo pacman -S --noconfirm --needed --color auto "$pkg"
-done
+pacman_install "${PACKAGES[@]}"
 
 timedatectl set-ntp 1

@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
+set -euo pipefail
+source ./shared.sh
+
 DRIVERS=(
-	linux-headers
-	broadcom-wl-dkms
-	brightnessctl
+  linux-headers
+  broadcom-wl-dkms
+  brightnessctl
 )
 
-for pkg in "${DRIVERS[@]}"; do
-	sudo pacman -S --confirm --needed "$pkg"
-done
+pacman_install "${PACKAGES[@]}"

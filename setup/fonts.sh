@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -euo pipefail
+source ./shared.sh
 
 FONTS=(
   noto-fonts
@@ -7,6 +9,4 @@ FONTS=(
   ttf-jetbrains-mono-nerd
 )
 
-for pkg in "${FONTS[@]}"; do
-  sudo pacman -S --noconfirm --needed --color auto "$pkg"
-done
+pacman_install "${FONTS[@]}"

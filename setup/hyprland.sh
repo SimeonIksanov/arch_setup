@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-
-source shared.sh
+set -euo pipefail
+source ./shared.sh
 
 PACKAGES=(
   brightnessctl
@@ -15,18 +15,12 @@ PACKAGES=(
   xdg-desktop-portal-hyprland
 )
 
-for pkg in "${PACKAGES[@]}"; do
-  sudo pacman -S --noconfirm --needed --color auto "$pkg"
-done
-
-systemctl --user enable --now hyprpolkitagent.service
-
-ITEMS=(
+STOW_ITEMS=(
   hyprland
   uwsm
   wayland
 )
 
-for item in "${ITEMS[@]}"; do
-  stow --dotfiles -v -d ${HOME}/arch_setup/dotfiles -t ${HOME} "$item"
-done
+pacman_install "${PACKAGES[@]}"
+stow_install "${STOW_ITEMS[@]}"
+systemctl --user enable --now hyprpolkitagent.service
