@@ -23,6 +23,7 @@ systemctl --user enable --now hyprpolkitagent.service
 
 ITEMS=(
   hyprland
+  uwsm
   wayland
 )
 
