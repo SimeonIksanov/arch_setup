@@ -5,8 +5,8 @@ source ./shared.sh
 PACKAGES=(
   brightnessctl
   hypridle
-  hypridle
   hyprland
+  hyprlock
   hyprpaper
   hyprpolkitagent
   hyprsunset

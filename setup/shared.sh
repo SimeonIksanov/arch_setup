@@ -29,7 +29,7 @@ yay_install() {
     --answerdiff "N"
   )
 
-  $SUDO pacman "${OPTS[@]}" "$@"
+  yay "${OPTS[@]}" "$@"
 }
 
 : "${DOTFILES_DIR:=${HOME}/arch_setup/dotfiles}"
