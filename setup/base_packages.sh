@@ -17,6 +17,7 @@ PACKAGES=(
   unzip
   wget
   zip
+  7zip
 )
 
 pacman_install "${PACKAGES[@]}"

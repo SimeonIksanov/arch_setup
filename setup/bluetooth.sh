@@ -12,3 +12,5 @@ PACKAGES=(
 )
 
 pacman_install "${PACKAGES[@]}"
+
+systemctl enable bluetooth
