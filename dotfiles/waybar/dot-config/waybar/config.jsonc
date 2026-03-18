@@ -17,7 +17,7 @@
     "battery"
   ],
   "image#hyprland": {
-    "path": "icons/hyprland.png",
+    "path": "/home/simeon/.config/waybar/icons/hyprland.png",
     "on-click": "rofi -show drun",
     "interval": 3600
   },
