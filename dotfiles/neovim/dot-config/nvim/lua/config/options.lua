@@ -5,3 +5,4 @@
 vim.opt.winborder = "single"
 vim.opt.mouse = ""
 vim.opt.clipboard = ""
+vim.opt.wrap = false
