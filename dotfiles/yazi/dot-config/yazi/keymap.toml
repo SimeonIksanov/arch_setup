@@ -1,0 +1,7 @@
+[mgr]
+prepend_keymap = [
+	{ on = "<A-p>", run = "plugin toggle-pane max-preview", desc = "Maximize or restore the preview pane" },
+	{ on = "<A-P>", run = "plugin toggle-pane min-preview", desc = "Minimize or restore the preview pane" },
+]
+append_keymap = [
+]

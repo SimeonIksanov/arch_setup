@@ -47,3 +47,13 @@ alias la='ls -la --color=auto'
 alias l='ls -CF --color=auto'
 
 # alias nvim="NVIM_APPNAME=nvim_lazy nvim"
+
+# Yazi config wrapper
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+# end Yazi config wrapper
