@@ -2,17 +2,24 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "catppuccin-mocha",
     },
   },
   {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
+      flavour = "mocha",
+      priority = 1000,
       transparent_background = true,
       term_colors = true,
       -- Optionally make floating windows transparent
       float = { transparent = true },
+      highlight_overrides = {
+        mocha = function()
+          return { Folded = { bg = "NONE" } }
+        end,
+      },
     },
   },
   {
@@ -24,6 +31,28 @@ return {
     opts = function(_, opts)
       opts.presets.lsp_doc_border = true
     end,
+  },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      picker = {
+        formatters = {
+          file = {
+            filename_first = true,
+            min_width = 40,
+          },
+        },
+      },
+    },
+    keys = {
+      {
+        "<leader>fb",
+        function()
+          Snacks.picker.buffers({ layout = "select" })
+        end,
+        desc = "Buffers",
+      },
+    },
   },
   -- {
   --   "nvim-lualine/lualine.nvim",
