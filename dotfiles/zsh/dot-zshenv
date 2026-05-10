@@ -11,5 +11,5 @@ export VISUAL=nvim
 # export PATH
 # path=(~/.dotnet/tools $path)
 # export PATH
-# export DOTNET_TOOLS='~/.dotnet/tools'
+export DOTNET_TOOLS="${HOME}/.dotnet/tools"
 export LOCAL_BIN="${HOME}/.local/bin"
