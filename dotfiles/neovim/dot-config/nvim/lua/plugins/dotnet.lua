@@ -1,28 +1,19 @@
 return {
-  {
-    "mason-org/mason.nvim",
-    opts = {
-      registries = {
-        "github:mason-org/mason-registry",
-        "github:Crashdummyy/mason-registry",
-      },
-    },
-  },
+  -- {
+  --   "mason-org/mason.nvim",
+  --   opts = {
+  --     registries = {
+  --       "github:mason-org/mason-registry",
+  --       "github:Crashdummyy/mason-registry",
+  --     },
+  --   },
+  -- },
   {
     "seblyng/roslyn.nvim",
     enabled = false,
-    dependencies = {
-      "tris203/rzls.nvim",
-      config = true,
-    },
-    init = function()
-      vim.filetype.add({
-        extension = { razor = "razor", cshtml = "razor" },
-      })
-    end,
     ft = { "cs", "razor" },
     opts = {
-      filewatching = "auto",
+      filewatching = "off",
       choose_target = nil,
       ignore_target = nil,
       broad_search = true,
@@ -30,24 +21,23 @@ return {
       debug = false,
     },
     config = function()
-      vim.api.nvim_create_autocmd({ "InsertLeave" }, {
-        pattern = "*",
-        callback = function()
-          local clients = vim.lsp.get_clients({ name = "roslyn" })
-          if not clients or #clients == 0 then
-            return
-          end
-
-          local client = assert(clients[1])
-          local buffers = vim.lsp.get_buffers_by_client_id(client.id)
-          for _, buf in ipairs(buffers) do
-            local params = {
-              textDocument = vim.lsp.util.make_text_document_params(buf),
-            }
-            client:request(vim.lsp.protocol.Methods.textDocument_diagnostic, params, nil, buf)
-          end
-        end,
-      })
+      -- vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+      --   pattern = "*",
+      --   callback = function()
+      --     local clients = vim.lsp.get_clients({ name = "roslyn" })
+      --     if not clients or #clients == 0 then
+      --       return
+      --     end
+      --
+      --     for _, client in ipairs(clients) do
+      --       local buffers = vim.lsp.get_buffers_by_client_id(client.id)
+      --       for _, buf in ipairs(buffers) do
+      --         local params = { textDocument = vim.lsp.util.make_text_document_params(buf) }
+      --         client:request("textDocument/diagnostic", params, nil, buf)
+      --       end
+      --     end
+      --   end,
+      -- })
       local capabilities = {
         textDocument = {
           diagnostic = {
@@ -61,22 +51,15 @@ return {
         },
       }
       capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
-      local rzls_path = vim.fn.expand("$MASON/packages/rzls/libexec")
       vim.lsp.config("roslyn", {
         cmd = {
           "roslyn",
           "--stdio",
           "--logLevel=Information",
-          "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
-          "--razorSourceGenerator=" .. vim.fs.joinpath(rzls_path, "Microsoft.CodeAnalysis.Razor.Compiler.dll"),
-          "--razorDesignTimePath="
-            .. vim.fs.joinpath(rzls_path, "Targets", "Microsoft.NET.Sdk.Razor.DesignTime.targets"),
-          "--extension",
-          vim.fs.joinpath(rzls_path, "RazorExtension", "Microsoft.VisualStudioCode.RazorExtension.dll"),
+          "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.log.get_filename()),
         },
         -- filetypes = { "cs", "razor" },
         -- capabilities = capabilities,
-        handlers = require("rzls.roslyn_handlers"),
         settings = {
           ["csharp|background_analysis"] = {
             ["background_analysis.dotnet_analyzer_diagnostics_scope"] = "fullSolution",
@@ -113,6 +96,13 @@ return {
           },
         },
       })
+    end,
+  },
+  {
+    "GustavEikaas/easy-dotnet.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "folke/snacks.nvim" },
+    config = function()
+      require("easy-dotnet").setup()
     end,
   },
 }
