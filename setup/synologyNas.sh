@@ -3,7 +3,7 @@
 set -euo pipefail
 
 MOUNT_BASE="${HOME}/synologyNas"
-NAS_HOST="synologynas.local"
+NAS_HOST="synologynas.lan"
 SHARES=("Data" "Courses")
 
 echo "Setting up Synology NAS mounts..."
