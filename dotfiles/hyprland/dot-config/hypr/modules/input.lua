@@ -14,10 +14,11 @@ hl.config({
 			natural_scroll = true,
 			scroll_factor = 0.2,
 			disable_while_typing = true,
+			tap_and_drag = true,
 		},
 	},
 	gestures = {
-		workspace_swipe_invert = false,
+		workspace_swipe_invert = true,
 		workspace_swipe_distance = 200,
 	},
 })
