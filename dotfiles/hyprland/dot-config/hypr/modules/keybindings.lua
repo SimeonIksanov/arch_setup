@@ -13,7 +13,7 @@ function SuperCtrl(key)
   return ctrlMod .. key
 end
 function RunApp(app)
-  return hl.dsp.exec_cmd("uwsm app -- "..app)
+  return hl.dsp.exec_cmd("uwsm app -- " .. app)
 end
 
 hl.bind(
@@ -218,9 +218,4 @@ hl.bind(
   { locked = true, description = "Play previous" }
 )
 
--- Toggle touchpad
-hl.bind(
-  "XF86TouchpadToggle",
-  hl.dsp.exec_cmd("/home/simeon/.config/hypr/scripts/toggle_touchpad.sh"),
-  { description = "Toggle touchpad" }
-)
+hl.bind("XF86TouchpadToggle", lib.toggleTouchpad, { description = "Toggle touchpad" })
