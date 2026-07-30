@@ -1,10 +1,10 @@
 local apps = {
-	"waybar",
-	"hyprpaper",
-	"hypridle",
+	-- "waybar",
+	-- "hyprpaper",
+	-- "hypridle",
 	"hyprsunset",
-	"swaync",
-	"swayosd-server",
+	-- "swaync",
+	-- "swayosd-server",
 }
 hl.on("hyprland.start", function()
 	for _, app in ipairs(apps) do

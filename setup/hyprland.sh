@@ -11,6 +11,7 @@ PACKAGES=(
   hyprpolkitagent
   hyprsunset
   libnotify
+  libinput-tools
   uwsm
   xdg-desktop-portal-hyprland
 )

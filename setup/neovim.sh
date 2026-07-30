@@ -8,6 +8,7 @@ PACKAGES=(
   fd
   ripgrep
   jq
+  tree-sitter-cli
 )
 
 STOW_ITEMS=(

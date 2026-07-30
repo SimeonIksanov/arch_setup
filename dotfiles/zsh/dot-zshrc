@@ -68,5 +68,3 @@ function y() {
 }
 # end Yazi config wrapper
 
-# NPM global bin (added by Qwen Code installer)
-export PATH="$HOME/.npm-global/bin:$PATH"

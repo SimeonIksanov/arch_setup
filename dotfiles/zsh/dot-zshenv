@@ -6,10 +6,14 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 # # Добавляем директории в PATH
-# typeset -U path
+typeset -U path
 # path=(~/.local/bin ~/bin $path)
 # export PATH
 # path=(~/.dotnet/tools $path)
 # export PATH
-export DOTNET_TOOLS="${HOME}/.dotnet/tools"
-export LOCAL_BIN="${HOME}/.local/bin"
+DOTNET_ROOT="${HOME}/.dotnet/sdk"
+DOTNET_TOOLS="${HOME}/.dotnet/tools"
+LOCAL_BIN="${HOME}/.local/bin"
+
+export DOTNET_ROOT
+path=($LOCAL_BIN $DOTNET_ROOT $DOTNET_TOOLS $path)
