@@ -5,6 +5,7 @@ local apps = {
 	"hyprsunset",
 	"swaync",
 	"swayosd-server",
+	"udiskie -t",
 }
 hl.on("hyprland.start", function()
 	for _, app in ipairs(apps) do
