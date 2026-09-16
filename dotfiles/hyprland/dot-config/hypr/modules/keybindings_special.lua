@@ -24,7 +24,7 @@ hl.bind(
 )
 hl.bind(
 	"XF86KbdBrightnessDown",
-	lib.RunApp("brightnessctl -d smc::kbd_backlight set +10%-"),
+	lib.RunApp("brightnessctl -d smc::kbd_backlight set 10%-"),
 	{ locked = true, repeating = true, description = "Decrease keyboard brightness" }
 )
 

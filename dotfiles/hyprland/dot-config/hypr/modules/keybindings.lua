@@ -23,10 +23,24 @@ hl.bind(
 hl.bind(lib.SuperShift("Q"), hl.dsp.window.kill(), { description = "Kill process" })
 hl.bind(lib.SuperCtrl("SHIFT+Q"), hl.dsp.exec_cmd("uswm stop"), { description = "Exit Hyprland" })
 
+-- for i = 1, 10, 1 do
+-- 	local key = i % 10
+-- 	local desc = "workspace " .. i
+-- 	hl.bind(lib.Super(key), hl.dsp.focus({ workspace = i }), { description = "Focus " .. desc })
+-- 	hl.bind(lib.SuperShift(key), hl.dsp.window.move({ workspace = i }), { description = "Move window to " .. desc })
+-- end
+
+local get_monitor_index = function()
+	return hl.get_active_monitor().name == "desk:AOC U2790B VGJP1HA00185" and 10 or 0
+end
+
 for i = 1, 10, 1 do
 	local key = i % 10
 	local desc = "workspace " .. i
-	hl.bind(lib.Super(key), hl.dsp.focus({ workspace = i }), { description = "Focus " .. desc })
+	hl.bind(lib.Super(key), function()
+		local mon = get_monitor_index()
+		hl.dispatch(hl.dsp.focus({ workspace = i + 10 * mon }))
+	end, { description = "Focus " .. desc })
 	hl.bind(lib.SuperShift(key), hl.dsp.window.move({ workspace = i }), { description = "Move window to " .. desc })
 end
 

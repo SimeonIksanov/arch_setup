@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
-source ./shared.sh
+source ../shared.sh
 
 PACKAGES=(
-  libfprint
   fprintd
+  libfprint
+  libpam-fprintd
 )
 
 pacman_install "${PACKAGES[@]}"

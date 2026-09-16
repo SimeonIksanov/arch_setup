@@ -17,3 +17,5 @@ vim.opt.listchars = {
   -- multispace = "·",
   trail = "·",
 }
+
+vim.lsp.enable("roslyn_ls")

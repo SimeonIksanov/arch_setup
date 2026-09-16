@@ -1,0 +1,7 @@
+[Touchpad pressure override]
+MatchUdevType=touchpad
+MatchName=GXTP5100:00 27C6:01E9
+MatchDMIModalias=dmi:*:svnLENOVO:pn21LD:pvrThinkBook14G6+IMH:*
+AttrPressureRange=35:30
+AttrPalmPressureThreshold=120
+AttrThumbPressureThreshold=100
