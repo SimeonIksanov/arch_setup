@@ -5,8 +5,8 @@ hl.bind(lib.Super("Tab"), lib.switch_layout, { description = "Switch layout" })
 --Swap scrolling culumns
 -- hl.bind(lib.Super("bracketleft"), hl.dsp.layout("swapcol l"), { description = "swap collumn left" })
 -- hl.bind(lib.Super("bracketright"), hl.dsp.layout("swapcol r"), { description = "swap collumn right" })
-hl.bind(lib.SuperShift("minus"), hl.dsp.layout("colresize -conf"), { description = "resize collumn smaller" })
-hl.bind(lib.SuperShift("equal"), hl.dsp.layout("colresize +conf"), { description = "resize collumn larger" })
+hl.bind(lib.Super("minus"), hl.dsp.layout("colresize -conf"), { description = "resize collumn smaller" })
+hl.bind(lib.Super("equal"), hl.dsp.layout("colresize +conf"), { description = "resize collumn larger" })
 hl.bind(
 	lib.SuperShift("comma"),
 	hl.dsp.layout("consume_or_expel prev"),
@@ -53,3 +53,5 @@ hl.bind(
 		master = hl.dsp.layout("cyclenext"),
 	})
 )
+hl.bind(lib.Super("RIGHT"), hl.dsp.layout("move +col"))
+hl.bind(lib.Super("LEFT"), hl.dsp.layout("move -col"))

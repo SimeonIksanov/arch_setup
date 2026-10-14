@@ -18,3 +18,11 @@ hl.window_rule({
 	match = { class = "^(kitty)$" },
 	suppress_event = "maximize",
 })
+
+hl.window_rule({
+	name = "vivaldi_with_tabs_in_fullscreen",
+	match = {
+		class = "^(vivaldi-stable)$",
+	},
+	fullscreen_state = "0 0",
+})

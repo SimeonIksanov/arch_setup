@@ -4,9 +4,6 @@ require("modules.keybindings_apps")
 require("modules.keybindings_special")
 require("modules.keybindings_layout")
 
--- hl.bind(Super("Return"), RunApp("rofi -show drun"), { description = "Open Rofi" })
--- hl.bind(Super("N"), RunApp("swaync-client -t -sw"), { description = "Toggle swaync-client" })
--- hl.bind(Super("Escape"), RunApp("wlogout -s"), { description = "Open wlogout menu" })
 hl.bind(lib.Super("Q"), hl.dsp.window.close(), { description = "Close window" })
 hl.bind(lib.Super("V"), hl.dsp.window.float({ action = "toggle" }), { description = "Toggle floating" })
 hl.bind(lib.Super("P"), hl.dsp.window.pseudo(), { description = "Toggle pseudo" })
@@ -15,20 +12,8 @@ hl.bind(
 	hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }),
 	{ description = "Toggle fullscreen" }
 )
-hl.bind(
-	lib.SuperShift("F"),
-	hl.dsp.window.fullscreen_state({ internal = 2, client = 0 }),
-	{ description = "Toggle maximized" }
-)
 hl.bind(lib.SuperShift("Q"), hl.dsp.window.kill(), { description = "Kill process" })
 hl.bind(lib.SuperCtrl("SHIFT+Q"), hl.dsp.exec_cmd("uswm stop"), { description = "Exit Hyprland" })
-
--- for i = 1, 10, 1 do
--- 	local key = i % 10
--- 	local desc = "workspace " .. i
--- 	hl.bind(lib.Super(key), hl.dsp.focus({ workspace = i }), { description = "Focus " .. desc })
--- 	hl.bind(lib.SuperShift(key), hl.dsp.window.move({ workspace = i }), { description = "Move window to " .. desc })
--- end
 
 local get_monitor_index = function()
 	return hl.get_active_monitor().name == "desk:AOC U2790B VGJP1HA001851" and 1 or 0
