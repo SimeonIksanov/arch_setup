@@ -36,7 +36,7 @@ hl.monitor({
 })
 
 hl.monitor({
-	output = "AOC U2790B VGJP1HA001851",
+	output = "desc:AOC U2790B VGJP1HA001851",
 	disabled = false,
 	mode = "3072x1728@60",
 	position = "auto-center-right",

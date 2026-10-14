@@ -31,17 +31,18 @@ hl.bind(lib.SuperCtrl("SHIFT+Q"), hl.dsp.exec_cmd("uswm stop"), { description = 
 -- end
 
 local get_monitor_index = function()
-	return hl.get_active_monitor().name == "desk:AOC U2790B VGJP1HA00185" and 10 or 0
+	return hl.get_active_monitor().name == "desk:AOC U2790B VGJP1HA001851" and 1 or 0
 end
 
 for i = 1, 10, 1 do
 	local key = i % 10
 	local desc = "workspace " .. i
 	hl.bind(lib.Super(key), function()
-		local mon = get_monitor_index()
-		hl.dispatch(hl.dsp.focus({ workspace = i + 10 * mon }))
+		hl.dispatch(hl.dsp.focus({ workspace = i + 10 * get_monitor_index() }))
 	end, { description = "Focus " .. desc })
-	hl.bind(lib.SuperShift(key), hl.dsp.window.move({ workspace = i }), { description = "Move window to " .. desc })
+	hl.bind(lib.SuperShift(key), function()
+		hl.dispatch(hl.dsp.window.move({ workspace = i + 10 * get_monitor_index() }))
+	end, { description = "Move window to " .. desc })
 end
 
 hl.bind(lib.Super("H"), function()
